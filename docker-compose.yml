@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - CODE_FORMATTER_SERVICE_URL=http://code-formatter:3001
+      - JWT_SERVICE_URL=http://jwt-service:3002
+      - HASH_SERVICE_URL=http://hash-service:3003
+      - CONVERTER_SERVICE_URL=http://converter-service:3004
+    depends_on:
+      - code-formatter
+      - jwt-service
+      - hash-service
+      - converter-service
+    networks:
+      - devtools-network
+    restart: unless-stopped
+
+  # Code Formatter Service
+  code-formatter:
+    build:
+      context: ./services/code-formatter
+      dockerfile: Dockerfile
+    container_name: code-formatter
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    networks:
+      - devtools-network
+    restart: unless-stopped
+
+  # JWT Service
+  jwt-service:
+    build:
+      context: ./services/jwt-service
+      dockerfile: Dockerfile
+    container_name: jwt-service
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+    networks:
+      - devtools-network
+    restart: unless-stopped
+
+  # Hash Service
+  hash-service:
+    build:
+      context: ./services/hash-service
+      dockerfile: Dockerfile
+    container_name: hash-service
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
+      - PORT=3003
+    networks:
+      - devtools-network
+    restart: unless-stopped
+
+  # Converter Service
+  converter-service:
+    build:
+      context: ./services/converter-service
+      dockerfile: Dockerfile
+    container_name: converter-service
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=production
+      - PORT=3004
+    networks:
+      - devtools-network
+    restart: unless-stopped
+
+networks:
+  devtools-network:
+    driver: bridge
+
+volumes:
+  node_modules:
