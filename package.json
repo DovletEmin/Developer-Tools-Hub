@@ -1,0 +1,37 @@
+{
+  "name": "developer-tools-hub",
+  "version": "1.0.0",
+  "description": "Modern microservices-based developer tools platform",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install && cd api-gateway && npm install && cd ../services/code-formatter && npm install && cd ../jwt-service && npm install && cd ../hash-service && npm install && cd ../converter-service && npm install",
+    "dev": "concurrently \"npm run dev:gateway\" \"npm run dev:formatter\" \"npm run dev:jwt\" \"npm run dev:hash\" \"npm run dev:converter\"",
+    "dev:gateway": "cd api-gateway && npm run dev",
+    "dev:formatter": "cd services/code-formatter && npm run dev",
+    "dev:jwt": "cd services/jwt-service && npm run dev",
+    "dev:hash": "cd services/hash-service && npm run dev",
+    "dev:converter": "cd services/converter-service && npm run dev",
+    "build": "npm run build:gateway && npm run build:services",
+    "build:gateway": "cd api-gateway && npm run build",
+    "build:services": "cd services/code-formatter && npm run build && cd ../jwt-service && npm run build && cd ../hash-service && npm run build && cd ../converter-service && npm run build",
+    "test": "npm run test:gateway && npm run test:services",
+    "test:gateway": "cd api-gateway && npm test",
+    "test:services": "cd services/code-formatter && npm test && cd ../jwt-service && npm test && cd ../hash-service && npm test && cd ../converter-service && npm test",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "keywords": [
+    "microservices",
+    "developer-tools",
+    "api",
+    "typescript",
+    "clean-architecture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
