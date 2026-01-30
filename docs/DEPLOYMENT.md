@@ -11,7 +11,7 @@
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/developer-tools-hub.git
+git clone https://github.com/DovletEmin/Developer-Tools-Hub.git
 cd developer-tools-hub
 ```
 

@@ -13,7 +13,7 @@ Thank you for your interest in contributing! This document provides guidelines f
 ## 🚀 Getting Started
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/developer-tools-hub.git`
+2. Clone your fork: `git clone https://github.com/DovletEmin/Developer-Tools-Hub.git`
 3. Create a branch: `git checkout -b feature/your-feature-name`
 4. Make your changes
 5. Test your changes

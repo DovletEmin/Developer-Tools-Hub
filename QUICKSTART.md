@@ -8,7 +8,7 @@ Welcome to Developer Tools Hub! This guide will help you get started quickly.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/developer-tools-hub.git
+git clone https://github.com/DovletEmin/Developer-Tools-Hub.git
 cd developer-tools-hub
 
 # 2. Start all services
@@ -25,7 +25,7 @@ That's it! All services are now running.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/developer-tools-hub.git
+git clone https://github.com/DovletEmin/Developer-Tools-Hub.git
 cd developer-tools-hub
 
 # 2. Install dependencies
