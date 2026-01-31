@@ -142,7 +142,7 @@ MIT License - see [LICENSE](./LICENSE) file for details
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Dovlet Eminov
 
 ## 🙏 Acknowledgments
 
